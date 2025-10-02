@@ -6,6 +6,7 @@ import MovieCard from "./MovieCard";
 
 const MovieList = () => {
 	const [movies, setMovies] = useState([]);
+	const [minRating, setMinRating] = useState(0);
 
 	useEffect(() => {
 		fetchMovies();
@@ -20,8 +21,6 @@ const MovieList = () => {
 		setMovies(data.results);
 	};
 
-	console.log(movies);
-
 	return (
 		<section className="movie_list">
 			<header className="align_center movie_list_header">
@@ -31,9 +30,15 @@ const MovieList = () => {
 
 				<div className="align_center movie_list_fs">
 					<ul className="align_center movie_filter">
-						<li className="movie_filter_item active">8+ Star</li>
-						<li className="movie_filter_item">7+ Star</li>
-						<li className="movie_filter_item">6+ Star</li>
+						<li className="movie_filter_item active" onClick={8}>
+							8+ Star
+						</li>
+						<li className="movie_filter_item" onClick={7}>
+							7+ Star
+						</li>
+						<li className="movie_filter_item" onClick={6}>
+							6+ Star
+						</li>
 					</ul>
 
 					<select name="" id="" className="movie_sorting">
